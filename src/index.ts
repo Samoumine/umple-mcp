@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { McpServer } from "@modelcontextprotocol/server";
 import { StdioServerTransport } from "@modelcontextprotocol/server/stdio";
-import { z } from "zod";
+import { registerValidateTool } from "./tools/validate.js";
 
 // Create the MCP server. The name and version are what AI tools see.
 const server = new McpServer({
@@ -9,20 +9,8 @@ const server = new McpServer({
   version: "0.1.0",
 });
 
-// Temporary test tool: only here to check that the setup works.
-// It will be removed when umple_validate is added (step 2).
-server.registerTool(
-  "ping",
-  {
-    description: "Test tool: replies with the message it receives",
-    inputSchema: z.object({
-      message: z.string().describe("Any text"),
-    }),
-  },
-  async ({ message }) => ({
-    content: [{ type: "text", text: `umple-mcp received: ${message}` }],
-  }),
-);
+// umple_validate: checks Umple code and returns its errors and warnings.
+registerValidateTool(server);
 
 // Start the server over stdio: the AI tool starts this program and talks to it
 // through stdin/stdout. Never use console.log here, it would break the messages.

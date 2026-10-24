@@ -16,7 +16,8 @@
     "build": "tsc && chmod 755 build/index.js",
     "start": "node build/index.js",
     "smoke": "npm run build && node test/smoke.mjs",
-    "inspect": "npm run build && npx @modelcontextprotocol/inspector node build/index.js"
+    "test": "npm run build && node --test test/*.test.mjs",
+    "inspect": "npm run build && npx @modelcontextprotocol/inspector -e UMPLESYNC_JAR=$UMPLESYNC_JAR node build/index.js"
   },
   "keywords": [],
   "author": "",
