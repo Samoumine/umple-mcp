@@ -5,6 +5,7 @@ MCP (Model Context Protocol) server for Umple, so AI tools (Claude Code, Cursor,
 ## Commands
 - `npm install`: install dependencies
 - `npm run build`: compile `src/` to `build/`
+- `npm test`: build, then run the tests (`node --test`); the Java tests need `UMPLESYNC_JAR`
 - `npm run smoke`: build, then start the server and call its tools once
 - `npm run inspect`: build, then open the server in MCP Inspector
 
