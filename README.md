@@ -1,5 +1,7 @@
 # umple-mcp
 
+This repo is temporary: it will move to [umple/umple-mcp](https://github.com/umple/umple-mcp) once that repo is created in the Umple organization.
+
 An MCP (Model Context Protocol) server for [Umple](https://www.umple.org).
 It lets AI tools such as Claude Code, Cursor and VS Code use Umple directly.
 
